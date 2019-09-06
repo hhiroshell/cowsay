@@ -1,0 +1,20 @@
+Cowsay powered by Java / GraalVM Native Image
+
+    Copyright 2019, Hiroshi Hayakawa <hhiroshell@gmail.com>
+
+This program is distributed under the GPLv2, inheriting Tony Monroe's
+original cowsay lisence.
+
+Note that the cowsay concept and original implementation is by Tony
+Monroe <tony@nog.net>
+
+The default cowfiles bundled with this cowsay are from original one
+https://github.com/schacon/cowsay.
+
+    Copyright (c) 1999 Tony Monroe.  All rights reserved. All lefts
+    may or may not be reversed at my discretion.
+
+And includes many java classes from ricksbron's Java cowsay
+https://github.com/ricksbrown/cowsay
+
+    Copyright (c) 2015 Rick Brown <ricksbrown73@gmail.com>
