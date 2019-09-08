@@ -3,10 +3,11 @@ package com.github.hhiroshell.cowsay;
 import org.apache.commons.lang3.StringUtils;
 import picocli.CommandLine;
 
-//import java.io.BufferedReader;
-//import java.io.IOException;
-//import java.io.InputStreamReader;
-//import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -76,7 +77,7 @@ public class Cowsay {
         System.out.println(cowsay.say());
     }
 
-    private String say() {
+    String say() {
         try {
             CowFace cowFace = CowFace.getByMode(this.getMode());
             if (cowFace == null) {
@@ -85,9 +86,9 @@ public class Cowsay {
             }
             String cowTemplate = Cowloader.load(cowfile);
             if (cowTemplate != null) {
-//            if (moosages.length == 0) {
-//                moosages = CowsayCliOrg.getPipedInput();
-//            }
+                if (moosages == null || moosages.isEmpty()) {
+                    moosages = Arrays.asList(Cowsay.getPipedInput());
+                }
                 String moosage = StringUtils.join(this.moosages, " ");
                 if (moosage != null && moosage.length() > 0) {
                     Message message = new Message(moosage, false);
@@ -134,25 +135,25 @@ public class Cowsay {
         return cowFace;
     }
 
-//    /**
-//     * Checks StdIn for piped input.
-//     * @return All lines from StdIn.
-//     */
-//    public static String[] getPipedInput() {
-//        List<String> messages = new ArrayList<>();
-//        try (InputStreamReader isr = new InputStreamReader(System.in)) {
-//            if (isr.ready()) {
-//                try (BufferedReader bufferedReader = new BufferedReader(isr)) {
-//                    String line;
-//                    while ((line = bufferedReader.readLine()) != null) {
-//                        messages.add(line);
-//                    }
-//                }
-//            }
-//        } catch (IOException ex) {
-//            Logger.getLogger(CowsayCliOrg.class.getName()).log(Level.WARNING, null, ex);
-//        }
-//        return messages.toArray(new String[messages.size()]);
-//    }
+   /**
+    * Checks StdIn for piped input.
+    * @return All lines from StdIn.
+    */
+   public static String[] getPipedInput() {
+       List<String> messages = new ArrayList<>();
+       try (InputStreamReader isr = new InputStreamReader(System.in)) {
+           if (isr.ready()) {
+               try (BufferedReader bufferedReader = new BufferedReader(isr)) {
+                   String line;
+                   while ((line = bufferedReader.readLine()) != null) {
+                       messages.add(line);
+                   }
+               }
+           }
+       } catch (IOException ex) {
+           Logger.getLogger(Cowsay.class.getName()).log(Level.WARNING, null, ex);
+       }
+       return messages.toArray(new String[messages.size()]);
+   }
 
 }
