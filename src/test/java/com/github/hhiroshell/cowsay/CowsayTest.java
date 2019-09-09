@@ -324,16 +324,16 @@ public class CowsayTest {
 	/**
 	 * Test of say method, of class Cowsay with long message.
 	 */
-	// @Test
-	// public void testSayLongLine() {
-	// 	System.out.println("cowsay long");
-	// 	String expResult = loadExpected("cowsayMulti.txt");
-	// 	String[] args = new String[]{"Moo moo moo moo moo moo moo moo moo moo moo moo moo moo moo moo moo moo moo"};
-	// 	Cowsay cowsay = new Cowsay();
-	// 	new CommandLine(cowsay).parseArgs(args);
-	// 	String result = cowsay.say();
-	// 	Assert.assertEquals(expResult, result);
-	// }
+	@Test
+	public void testSayLongLine() {
+		System.out.println("cowsay long");
+		String expResult = loadExpected("cowsayMulti.txt");
+		String[] args = new String[]{"Moo moo moo moo moo moo moo moo moo moo moo moo moo moo moo moo moo moo moo"};
+		Cowsay cowsay = new Cowsay();
+		new CommandLine(cowsay).parseArgs(args);
+		String result = cowsay.say();
+		Assert.assertEquals(expResult, result);
+	}
 
 	/**
 	 * Test of say method, of class Cowsay with multiline input message.
@@ -351,22 +351,22 @@ public class CowsayTest {
 		Assert.assertEquals(expResult, result);
 	}
 
-	// /**
-	//  * Test of say method, of class Cowsay with multiline input message.
-	//  */
-	// @Test
-	// public void testSayMultiLineLongInput() {
-	// 	System.out.println("cowsay mutli long");
-	// 	String expResult = loadExpected("cowsayMultilineLong.txt");
-	// 	String[] args = new String[]{"This is a test text." + System.lineSeparator()
-	// 			+ "To test long lines in cowsay." + System.lineSeparator()
-	// 			+ "This is a really really really really really long line." + System.lineSeparator()
-	// 			+ "Moo moo moo."};
-	// 	Cowsay cowsay = new Cowsay();
-	// 	new CommandLine(cowsay).parseArgs(args);
-	// 	String result = cowsay.say();
-	// 	Assert.assertEquals(expResult, result);
-	// }
+	/**
+	 * Test of say method, of class Cowsay with multiline input message.
+	 */
+	@Test
+	public void testSayMultiLineLongInput() {
+		System.out.println("cowsay mutli long");
+		String expResult = loadExpected("cowsayMultilineLong.txt");
+		String[] args = new String[]{"This is a test text." + System.lineSeparator()
+				+ "To test long lines in cowsay." + System.lineSeparator()
+				+ "This is a really really really really really long line." + System.lineSeparator()
+				+ "Moo moo moo."};
+		Cowsay cowsay = new Cowsay();
+		new CommandLine(cowsay).parseArgs(args);
+		String result = cowsay.say();
+		Assert.assertEquals(expResult, result);
+	}
 
 	/**
 	 * Test parsing all known cowfiles.

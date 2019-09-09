@@ -94,15 +94,16 @@ public class Message {
 	 * Set the length of the wordwrap, default is "40", zero disables line-wrap.
 	 * @param wordwrap A number indicating where (approximately) to line-wrap the message.
 	 */
-	public void setWordwrap(final String wordwrap) {
-		try {
-			int ww = Integer.parseInt(wordwrap);
-			if (ww >= 0) {
-				this.wordwrap = ww;
-			}
-		} catch(Throwable ignore) {
-			// ignore
-		}
+	public void setWordwrap(final byte wordwrap) {
+		this.wordwrap = wordwrap;
+		// try {
+		// 	int ww = Integer.parseInt(wordwrap);
+		// 	if (ww >= 0) {
+		// 		this.wordwrap = ww;
+		// 	}
+		// } catch(Throwable ignore) {
+		// 	// ignore
+		// }
 	}
 
 	/**

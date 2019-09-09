@@ -40,7 +40,7 @@ public class Cowsay {
     private String tongue = null;
 
     @CommandLine.Option(names = {"-W"}, description = "word wrap")
-    private String wordwrap = "0";
+    private byte wordwrap = Message.DEFAULT_WRAP;
 
     @CommandLine.Option(names = {"-n"}, description = "no wrap")
     private boolean nowrap = false;
@@ -92,7 +92,7 @@ public class Cowsay {
                 String moosage = StringUtils.join(this.moosages, " ");
                 if (moosage != null && moosage.length() > 0) {
                     Message message = new Message(moosage, false);
-                    message.setWordwrap(nowrap ? "0" : wordwrap);
+                    message.setWordwrap(nowrap ? 0 : wordwrap);
                     return CowFormatter.formatCow(cowTemplate, cowFace, message);
                 }
             }
