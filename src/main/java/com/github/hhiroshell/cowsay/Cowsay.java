@@ -74,7 +74,7 @@ public class Cowsay {
             }
             return;
         }
-        System.out.println(cowsay.say());
+        System.out.print(cowsay.say());
     }
 
     String say() {
